@@ -1,0 +1,741 @@
+******************************************************************************
+                  TI ARM Linker PC v20.2.5                     
+******************************************************************************
+>> Linked Fri Mar 25 19:54:01 2022
+
+OUTPUT FILE NAME:   <grlib_demo.out>
+ENTRY POINT SYMBOL: "_c_int00_noargs"  address: 0000a929
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  FLASH                 00000000   00100000  0000b2be  000f4d42  R  X
+  SRAM                  20000000   00040000  00001a78  0003e588  RW X
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    0000b2c0   0000b2c0    r-x
+  00000000    00000000    00000200   00000200    r-- .intvecs
+  00000200    00000200    00005e58   00005e58    r-- .const
+  00006058    00006058    00004d6e   00004d6e    r-x .text
+  0000adc8    0000adc8    000004f8   000004f8    r-- .cinit
+20000000    20000000    000010d8   00000000    rw-
+  20000000    20000000    000010d8   00000000    rw- .data
+20001400    20001400    000009a0   00000000    rw-
+  20001400    20001400    000005a0   00000000    rw- .bss
+  200019a0    200019a0    00000400   00000000    rw- .stack
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    00000200     
+                  00000000    00000200     startup_ccs.obj (.intvecs)
+
+.const     0    00000200    00005e58     
+                  00000200    00000a60     grlib.lib : fontcm24.obj (.const:.string:g_pui8Cm24Data)
+                  00000c60    00000960               : fontcm22.obj (.const:.string:g_pui8Cm22Data)
+                  000015c0    0000095e               : fontcm20.obj (.const:.string:g_pui8Cm20Data)
+                  00001f1e    0000086e               : fontcm18.obj (.const:.string:g_pui8Cm18Data)
+                  0000278c    0000083d     images.obj (.const:.string:g_pui8RedSlider195x37)
+                  00002fc9    00000826     images.obj (.const:.string:g_pui8GreenSlider195x37)
+                  000037ef    00000705     images.obj (.const:.string:g_pui8GettingHotter28x148)
+                  00003ef4    0000065a     grlib.lib : fontcm14.obj (.const:.string:g_pui8Cm14Data)
+                  0000454e    0000055f               : fontcm12.obj (.const:.string:g_pui8Cm12Data)
+                  00004aad    000003ad     images.obj (.const:.string:g_pui8GettingHotter28x148Mono)
+                  00004e5a    00000230     images.obj (.const:.string:g_pui8Logo)
+                  0000508a    00000210     images.obj (.const:.string:g_pui8Blue50x50)
+                  0000529a    0000020e     images.obj (.const:.string:g_pui8Blue50x50Press)
+                  000054a8    000001b0     driverlib.lib : sysctl.obj (.const:g_pppui32XTALtoVCO)
+                  00005658    0000017a     grlib_demo.obj (.const:.string)
+                  000057d2    000000f5     images.obj (.const:.string:g_pui8LightOff)
+                  000058c7    000000e6     images.obj (.const:.string:g_pui8LightOn)
+                  000059ad    00000003     --HOLE-- [fill = 0]
+                  000059b0    000000c8     grlib.lib : fontcm12.obj (.const:g_sFontCm12)
+                  00005a78    000000c8               : fontcm14.obj (.const:g_sFontCm14)
+                  00005b40    000000c8               : fontcm18.obj (.const:g_sFontCm18)
+                  00005c08    000000c8               : fontcm20.obj (.const:g_sFontCm20)
+                  00005cd0    000000c8               : fontcm22.obj (.const:g_sFontCm22)
+                  00005d98    000000c8               : fontcm24.obj (.const:g_sFontCm24)
+                  00005e60    00000090     driverlib.lib : gpio.obj (.const:g_pui32GPIOBaseAddrs)
+                  00005ef0    00000070                   : interrupt.obj (.const)
+                  00005f60    0000006c                   : sysctl.obj (.const:g_pui32Xtals)
+                  00005fcc    00000030                   : sysctl.obj (.const:g_sXTALtoMEMTIM)
+                  00005ffc    00000028     Kentec320x240x16_ssd2119_spi.obj (.const:g_sKentec320x240x16_SSD2119)
+                  00006024    0000001c     touch.obj (.const:g_pi32TouchParameters)
+                  00006040    00000010     grlib.lib : context.obj (.const)
+                  00006050    00000008     driverlib.lib : sysctl.obj (.const)
+
+.text      0    00006058    00004d6e     
+                  00006058    0000053a     Kentec320x240x16_ssd2119_spi.obj (.text:Kentec320x240x16_SSD2119Init)
+                  00006592    00000002     startup_ccs.obj (.text:FaultISR)
+                  00006594    00000374     grlib.lib : image.obj (.text:InternalImageDraw)
+                  00006908    000002f8               : image.obj (.text:PixelTransparentDraw)
+                  00006c00    000002c6               : slider.obj (.text:SliderPaint)
+                  00006ec6    00000254               : string.obj (.text:GrFontGlyphRender)
+                  0000711a    00000002     startup_ccs.obj (.text:IntDefaultHandler)
+                  0000711c    00000251     ustdlib.obj (.text:uvsnprintf)
+                  0000736d    00000001     --HOLE-- [fill = 0]
+                  0000736e    0000020e     grlib.lib : checkbox.obj (.text:CheckBoxPaint)
+                  0000757c    00000208               : circle.obj (.text:GrCircleDraw)
+                  00007784    00000208     grlib_demo.obj (.text:OnIntroPaint)
+                  0000798c    00000200     grlib_demo.obj (.text:OnPrimitivePaint)
+                  00007b8c    00000200     driverlib.lib : sysctl.obj (.text:SysCtlClockFreqSet)
+                  00007d8c    000001b6     grlib.lib : radiobutton.obj (.text:RadioButtonPaint)
+                  00007f42    00000190               : canvas.obj (.text:CanvasPaint)
+                  000080d2    00000002     Kentec320x240x16_ssd2119_spi.obj (.text:Kentec320x240x16_SSD2119Flush)
+                  000080d4    00000180     touch.obj (.text:TouchScreenDebouncer)
+                  00008254    0000017e     grlib.lib : pushbutton.obj (.text:RectangularButtonPaint)
+                  000083d2    0000016e               : pushbutton.obj (.text:CircularButtonPaint)
+                  00008540    00000164     grlib_demo.obj (.text:main)
+                  000086a4    00000154     grlib.lib : container.obj (.text:ContainerPaint)
+                  000087f8    0000014a     Kentec320x240x16_ssd2119_spi.obj (.text:Kentec320x240x16_SSD2119PixelDrawMultiple)
+                  00008942    00000144     grlib.lib : circle.obj (.text:GrCircleFill)
+                  00008a86    00000132     driverlib.lib : gpio.obj (.text:GPIOPadConfigSet)
+                  00008bb8    00000130     touch.obj (.text:TouchScreenIntHandler)
+                  00008ce8    00000124     Kentec320x240x16_ssd2119_spi.obj (.text:Kentec320x240x16_SSD2119RectFill)
+                  00008e0c    00000114     touch.obj (.text:TouchScreenInit)
+                  00008f20    00000106     grlib.lib : line.obj (.text:GrLineDraw)
+                  00009026    000000f2               : pushbutton.obj (.text:RectangularButtonClick)
+                  00009118    000000e8               : widget.obj (.text:WidgetMessageQueueAdd)
+                  00009200    000000d8     Kentec320x240x16_ssd2119_spi.obj (.text:Kentec320x240x16_SSD2119LineDrawH)
+                  000092d8    000000d6     grlib.lib : slider.obj (.text:SliderClick)
+                  000093ae    000000d4               : pushbutton.obj (.text:CircularButtonClick)
+                  00009482    000000c0               : string.obj (.text:GrDefaultStringRenderer)
+                  00009542    00000002     startup_ccs.obj (.text:NmiSR)
+                  00009544    000000bc     grlib_demo.obj (.text:OnPrevious)
+                  00009600    000000b8     grlib.lib : line.obj (.text:GrLineClip)
+                  000096b8    000000b8     Kentec320x240x16_ssd2119_spi.obj (.text:InitSPILCDInterface)
+                  00009770    000000b8     grlib_demo.obj (.text:OnNext)
+                  00009828    000000b4     grlib.lib : widget.obj (.text:WidgetMessageSendPostOrder)
+                  000098dc    000000b0               : slider.obj (.text:SliderValueToPosition)
+                  0000998c    000000a4     Kentec320x240x16_ssd2119_spi.obj (.text:Kentec320x240x16_SSD2119LineDrawV)
+                  00009a30    0000009c     rtsv7M4_T_le_v4SPD16_eabi.lib : memcpy_t2.asm.obj (.text)
+                  00009acc    00000090     grlib.lib : radiobutton.obj (.text:RadioButtonClick)
+                  00009b5c    0000008c     grlib_demo.obj (.text:OnSliderChange)
+                  00009be8    00000088     grlib_demo.obj (.text:OnCanvasPaint)
+                  00009c70    00000086     grlib.lib : rectangle.obj (.text:GrRectFill)
+                  00009cf6    00000080               : rectangle.obj (.text:GrRectIntersectGet)
+                  00009d76    00000002     rtsv7M4_T_le_v4SPD16_eabi.lib : div0.asm.obj (.text)
+                  00009d78    0000007c     Kentec320x240x16_ssd2119_spi.obj (.text:Kentec320x240x16_SSD2119PixelDraw)
+                  00009df4    0000007a     driverlib.lib : adc.obj (.text:ADCSequenceStepConfigure)
+                  00009e6e    0000007a     rtsv7M4_T_le_v4SPD16_eabi.lib : memset_t2.asm.obj (.text)
+                  00009ee8    0000006c     grlib_demo.obj (.text:OnRadioChange)
+                  00009f54    00000068     grlib.lib : context.obj (.text:GrContextInit)
+                  00009fbc    00000068               : string.obj (.text:GrStringWidthGet)
+                  0000a024    00000068     driverlib.lib : interrupt.obj (.text:IntEnable)
+                  0000a08c    00000068     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_lzss.c.obj (.text:decompress:lzss:__TI_decompress_lzss)
+                  0000a0f4    00000066     grlib.lib : context.obj (.text:GrContextClipRegionSet)
+                  0000a15a    00000066               : rectangle.obj (.text:GrRectDraw)
+                  0000a1c0    00000064     grlib_demo.obj (.text:OnButtonPress)
+                  0000a224    00000064     grlib.lib : widget.obj (.text:WidgetMessageQueueProcess)
+                  0000a288    00000060     driverlib.lib : timer.obj (.text:TimerConfigure)
+                  0000a2e8    0000005e     grlib.lib : widget.obj (.text:WidgetMessageSendPreOrder)
+                  0000a346    0000005a               : string.obj (.text:FontWideGlyphDataGet)
+                  0000a3a0    00000058               : slider.obj (.text:SliderPositionToValue)
+                  0000a3f8    00000058     driverlib.lib : timer.obj (.text:TimerControlTrigger)
+                  0000a450    00000050                   : adc.obj (.text:ADCSequenceConfigure)
+                  0000a4a0    00000050     grlib.lib : checkbox.obj (.text:CheckBoxClick)
+                  0000a4f0    00000050     grlib_demo.obj (.text:OnCheckChange)
+                  0000a540    0000004c     grlib.lib : widget.obj (.text:WidgetRemove)
+                  0000a58c    0000004c     Kentec320x240x16_ssd2119_spi.obj (.text:WriteCommandSPI)
+                  0000a5d8    0000004c     Kentec320x240x16_ssd2119_spi.obj (.text:WriteDataSPI)
+                  0000a624    0000004a     grlib.lib : string.obj (.text:UpdateContextCharMapping)
+                  0000a66e    00000002     --HOLE-- [fill = 0]
+                  0000a670    00000048     driverlib.lib : gpio.obj (.text:GPIOPinConfigure)
+                  0000a6b8    00000048                   : sysctl.obj (.text:_SysCtlFrequencyGet)
+                  0000a700    00000046     grlib.lib : line.obj (.text:GrLineDrawH)
+                  0000a746    00000046               : line.obj (.text:GrLineDrawV)
+                  0000a78c    00000044     rtsv7M4_T_le_v4SPD16_eabi.lib : autoinit.c.obj (.text:__TI_auto_init_nobinit_nopinit:__TI_auto_init_nobinit_nopinit)
+                  0000a7d0    00000040                                   : u_divt2.asm.obj (.text)
+                  0000a810    0000003c     driverlib.lib : ssi.obj (.text:SSIConfigSetExpClk)
+                  0000a84c    0000003a     grlib.lib : string.obj (.text:FontGlyphDataGet)
+                  0000a886    00000038               : rectangle.obj (.text:GrRectOverlapCheck)
+                  0000a8be    00000036               : line.obj (.text:GrClipCodeGet)
+                  0000a8f4    00000034     driverlib.lib : sysctl.obj (.text:SysCtlPeripheralEnable)
+                  0000a928    00000034     rtsv7M4_T_le_v4SPD16_eabi.lib : boot_cortex_m.c.obj (.text:_c_int00_noargs:_c_int00_noargs)
+                  0000a95c    0000002e     grlib.lib : checkbox.obj (.text:CheckBoxMsgProc)
+                  0000a98a    0000002e               : string.obj (.text:GrStringNextCharGet)
+                  0000a9b8    0000002e               : radiobutton.obj (.text:RadioButtonMsgProc)
+                  0000a9e6    0000002c               : pushbutton.obj (.text:CircularButtonMsgProc)
+                  0000aa12    0000002c               : string.obj (.text:GrFontBaselineGet)
+                  0000aa3e    0000002c               : string.obj (.text:GrFontHeightGet)
+                  0000aa6a    0000002c               : pushbutton.obj (.text:RectangularButtonMsgProc)
+                  0000aa96    0000002c               : slider.obj (.text:SliderMsgProc)
+                  0000aac2    0000002c               : widget.obj (.text:WidgetIsInTree)
+                  0000aaee    0000002a     driverlib.lib : gpio.obj (.text:GPIODirModeSet)
+                  0000ab18    0000002a     ustdlib.obj (.text:ustrncpy)
+                  0000ab42    00000026     grlib.lib : string.obj (.text:GrFontInfoGet)
+                  0000ab68    00000022               : string.obj (.text:GrFontGlyphDataGet)
+                  0000ab8a    00000002     --HOLE-- [fill = 0]
+                  0000ab8c    00000020     driverlib.lib : sysctl.obj (.text:_SysCtlMemTimingGet)
+                  0000abac    00000020     ustdlib.obj (.text:usprintf)
+                  0000abcc    0000001e     grlib.lib : string.obj (.text:GrFontCodepageGet)
+                  0000abea    0000001e               : widget.obj (.text:WidgetAdd)
+                  0000ac08    0000001c               : widget.obj (.text:WidgetPointerMessage)
+                  0000ac24    00000018     driverlib.lib : gpio.obj (.text:GPIOPinTypeGPIOOutput)
+                  0000ac3c    00000016     grlib.lib : string.obj (.text:GrStringDraw)
+                  0000ac52    00000016     Kentec320x240x16_ssd2119_spi.obj (.text:Kentec320x240x16_SSD2119ColorTranslate)
+                  0000ac68    00000014     grlib.lib : canvas.obj (.text:CanvasMsgProc)
+                  0000ac7c    00000014               : container.obj (.text:ContainerMsgProc)
+                  0000ac90    00000014               : widget.obj (.text:WidgetMutexGet)
+                  0000aca4    00000012     driverlib.lib : gpio.obj (.text:GPIOPinTypeSSI)
+                  0000acb6    00000012                   : ssi.obj (.text:SSIDataGetNonBlocking)
+                  0000acc8    00000012                   : timer.obj (.text:TimerLoadSet)
+                  0000acda    00000010                   : adc.obj (.text:ADCIntEnable)
+                  0000acea    00000002     --HOLE-- [fill = 0]
+                  0000acec    00000010                   : fpu.obj (.text:FPUEnable)
+                  0000acfc    00000010                   : fpu.obj (.text:FPULazyStackingEnable)
+                  0000ad0c    00000010                   : udma.obj (.text:uDMAEnable)
+                  0000ad1c    0000000e                   : adc.obj (.text:ADCSequenceEnable)
+                  0000ad2a    0000000e     grlib.lib : image.obj (.text:GrImageDraw)
+                  0000ad38    0000000e     driverlib.lib : timer.obj (.text:TimerEnable)
+                  0000ad46    0000000e     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_none.c.obj (.text:decompress:none:__TI_decompress_none)
+                  0000ad54    0000000c     touch.obj (.text:TouchScreenCallbackSet)
+                  0000ad60    0000000c     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_zero_init.c.obj (.text:decompress:ZI:__TI_zero_init)
+                  0000ad6c    0000000c     driverlib.lib : udma.obj (.text:uDMAControlBaseSet)
+                  0000ad78    0000000a                   : ssi.obj (.text:SSIDataPut)
+                  0000ad82    0000000a                   : ssi.obj (.text:SSIEnable)
+                  0000ad8c    00000008     grlib.lib : charmap.obj (.text:GrMapISO8859_1_Unicode)
+                  0000ad94    00000008     driverlib.lib : ssi.obj (.text:SSIBusy)
+                  0000ad9c    00000006                   : gpio.obj (.text:GPIOPinWrite)
+                  0000ada2    00000006     grlib.lib : string.obj (.text:GrContextFontSet)
+                  0000ada8    00000006     startup_ccs.obj (.text:ResetISR)
+                  0000adae    00000006     driverlib.lib : sysctl.obj (.text:SysCtlDelay)
+                  0000adb4    00000006     grlib.lib : widget.obj (.text:WidgetMutexPut)
+                  0000adba    00000004               : widget.obj (.text:WidgetDefaultMsgProc)
+                  0000adbe    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : pre_init.c.obj (.text:_system_pre_init)
+                  0000adc2    00000004                                   : exit.c.obj (.text:abort:abort)
+
+.cinit     0    0000adc8    000004f8     
+                  0000adc8    000004d0     (.cinit..data.load) [load image, compression = lzss]
+                  0000b298    0000000c     (__TI_handler_table)
+                  0000b2a4    00000004     --HOLE-- [fill = 0]
+                  0000b2a8    00000008     (.cinit..bss.load) [load image, compression = zero_init]
+                  0000b2b0    00000010     (__TI_cinit_table)
+
+.init_array 
+*          0    00000000    00000000     UNINITIALIZED
+
+.data      0    20000000    000010d8     UNINITIALIZED
+                  20000000    00000280     grlib_demo.obj (.data:g_psPushButtonIndicators)
+                  20000280    00000228     grlib_demo.obj (.data:g_psSliders)
+                  200004a8    00000200     grlib_demo.obj (.data:g_psPanels)
+                  200006a8    000001e0     grlib_demo.obj (.data:g_psPushButtons)
+                  20000888    00000180     grlib_demo.obj (.data:g_psRadioButtonIndicators)
+                  20000a08    000000c0     grlib_demo.obj (.data:g_psCheckBoxIndicators)
+                  20000ac8    000000c0     grlib_demo.obj (.data:g_psCheckBoxes)
+                  20000b88    000000c0     grlib_demo.obj (.data:g_psRadioButtons1)
+                  20000c48    000000c0     grlib_demo.obj (.data:g_psRadioButtons2)
+                  20000d08    00000070     grlib_demo.obj (.data:g_psRadioContainers)
+                  20000d78    00000050     grlib_demo.obj (.data:g_sNext)
+                  20000dc8    00000050     grlib_demo.obj (.data:g_sPrevious)
+                  20000e18    00000040     grlib_demo.obj (.data:g_sCanvas1)
+                  20000e58    00000040     grlib_demo.obj (.data:g_sCanvas2)
+                  20000e98    00000040     grlib_demo.obj (.data:g_sCanvas3)
+                  20000ed8    00000040     grlib_demo.obj (.data:g_sIntroduction)
+                  20000f18    00000040     grlib_demo.obj (.data:g_sPrimitives)
+                  20000f58    00000040     grlib_demo.obj (.data:g_sSliderValueCanvas)
+                  20000f98    00000040     grlib_demo.obj (.data:g_sTitle)
+                  20000fd8    00000038     grlib_demo.obj (.data:g_sContainer1)
+                  20001010    00000038     grlib_demo.obj (.data:g_sContainer2)
+                  20001048    00000038     grlib_demo.obj (.data:g_sContainer3)
+                  20001080    0000002d     grlib.lib : widget.obj (.data)
+                  200010ad    00000003     --HOLE--
+                  200010b0    00000024     grlib_demo.obj (.data:g_pcPanei32Names)
+                  200010d4    00000004     touch.obj (.data)
+
+.bss       0    20001400    000005a0     UNINITIALIZED
+                  20001400    00000400     (.common:psDMAControlTable)
+                  20001800    00000140     grlib.lib : widget.obj (.bss:g_psMQ)
+                  20001940    00000020     (.common:g_pui8Dictionary)
+                  20001960    00000010     touch.obj (.bss:g_pi16Samples)
+                  20001970    00000008     grlib_demo.obj (.bss:pcCanvasText$1)
+                  20001978    00000008     grlib_demo.obj (.bss:pcSliderText$2)
+                  20001980    00000008     touch.obj (.bss)
+                  20001988    00000004     (.common:g_pi32ParmSet)
+                  2000198c    00000004     (.common:g_psGrLibDefaults)
+                  20001990    00000004     (.common:g_ui32ButtonState)
+                  20001994    00000004     (.common:g_ui32Panel)
+                  20001998    00000004     (.common:g_ui32SysClock)
+                  2000199c    00000002     (.common:g_i16TouchX)
+                  2000199e    00000002     (.common:g_i16TouchY)
+
+.stack     0    200019a0    00000400     UNINITIALIZED
+                  200019a0    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : boot_cortex_m.c.obj (.stack)
+                  200019a4    000003fc     --HOLE--
+
+__llvm_prf_cnts 
+*          0    20000000    00000000     UNINITIALIZED
+
+MODULE SUMMARY
+
+       Module                             code    ro data   rw data
+       ------                             ----    -------   -------
+    .\
+       images.obj                         0       9022      0      
+       grlib_demo.obj                     2324    378       5312   
+       startup_ccs.obj                    12      512       0      
+    +--+----------------------------------+-------+---------+---------+
+       Total:                             2336    9912      5312   
+                                                                   
+    .\drivers\
+       Kentec320x240x16_ssd2119_spi.obj   2824    40        0      
+       touch.obj                          976     28        36     
+    +--+----------------------------------+-------+---------+---------+
+       Total:                             3800    68        36     
+                                                                   
+    .\utils\
+       ustdlib.obj                        667     0         0      
+    +--+----------------------------------+-------+---------+---------+
+       Total:                             667     0         0      
+                                                                   
+    C:/ti/tivaware_c_series_2_1_4_178/driverlib/ccs/Debug/driverlib.lib
+       sysctl.obj                         674     596       0      
+       gpio.obj                           468     144       0      
+       adc.obj                            232     0         0      
+       interrupt.obj                      104     112       0      
+       timer.obj                          216     0         0      
+       ssi.obj                            106     0         0      
+       fpu.obj                            32      0         0      
+       udma.obj                           28      0         0      
+    +--+----------------------------------+-------+---------+---------+
+       Total:                             1860    852       0      
+                                                                   
+    C:/ti/tivaware_c_series_2_1_4_178/grlib/ccs/Debug/grlib.lib
+       fontcm24.obj                       0       2856      0      
+       fontcm22.obj                       0       2600      0      
+       fontcm20.obj                       0       2598      0      
+       fontcm18.obj                       0       2358      0      
+       fontcm14.obj                       0       1826      0      
+       image.obj                          1658    0         32     
+       fontcm12.obj                       0       1575      0      
+       string.obj                         1378    0         0      
+       pushbutton.obj                     1290    0         0      
+       slider.obj                         1232    0         0      
+       widget.obj                         814     0         365    
+       circle.obj                         844     0         0      
+       checkbox.obj                       652     0         0      
+       line.obj                           640     0         0      
+       radiobutton.obj                    628     0         0      
+       canvas.obj                         420     0         0      
+       rectangle.obj                      420     0         0      
+       container.obj                      360     0         0      
+       context.obj                        206     16        4      
+       charmap.obj                        8       0         0      
+    +--+----------------------------------+-------+---------+---------+
+       Total:                             10550   13829     401    
+                                                                   
+    C:\ti\ccs1110\ccs\tools\compiler\ti-cgt-arm_20.2.5.LTS\lib\rtsv7M4_T_le_v4SPD16_eabi.lib
+       memcpy_t2.asm.obj                  156     0         0      
+       memset_t2.asm.obj                  122     0         0      
+       copy_decompress_lzss.c.obj         104     0         0      
+       autoinit.c.obj                     68      0         0      
+       u_divt2.asm.obj                    64      0         0      
+       boot_cortex_m.c.obj                52      0         0      
+       copy_decompress_none.c.obj         14      0         0      
+       copy_zero_init.c.obj               12      0         0      
+       exit.c.obj                         4       0         0      
+       pre_init.c.obj                     4       0         0      
+       div0.asm.obj                       2       0         0      
+    +--+----------------------------------+-------+---------+---------+
+       Total:                             602     0         0      
+                                                                   
+       Stack:                             0       0         1024   
+       Linker Generated:                  0       1268      0      
+    +--+----------------------------------+-------+---------+---------+
+       Grand Total:                       19815   25929     6773   
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 0000b2b0 records: 2, size/record: 8, table size: 16
+	.data: load addr=0000adc8, load size=000004d0 bytes, run addr=20000000, run size=000010d8 bytes, compression=lzss
+	.bss: load addr=0000b2a8, load size=00000008 bytes, run addr=20001400, run size=000005a0 bytes, compression=zero_init
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 0000b298 records: 3, size/record: 4, table size: 12
+	index: 0, handler: __TI_decompress_lzss
+	index: 1, handler: __TI_decompress_none
+	index: 2, handler: __TI_zero_init
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                          
+-------   ----                          
+0000acdb  ADCIntEnable                  
+0000a451  ADCSequenceConfigure          
+0000ad1d  ADCSequenceEnable             
+00009df5  ADCSequenceStepConfigure      
+0000adc3  C$$EXIT                       
+0000ac69  CanvasMsgProc                 
+0000a95d  CheckBoxMsgProc               
+0000a9e7  CircularButtonMsgProc         
+0000ac7d  ContainerMsgProc              
+0000aced  FPUEnable                     
+0000acfd  FPULazyStackingEnable         
+0000aaef  GPIODirModeSet                
+00008a87  GPIOPadConfigSet              
+0000a671  GPIOPinConfigure              
+0000ac25  GPIOPinTypeGPIOOutput         
+0000aca5  GPIOPinTypeSSI                
+0000ad9d  GPIOPinWrite                  
+0000757d  GrCircleDraw                  
+00008943  GrCircleFill                  
+0000a0f5  GrContextClipRegionSet        
+0000ada3  GrContextFontSet              
+00009f55  GrContextInit                 
+00009483  GrDefaultStringRenderer       
+0000aa13  GrFontBaselineGet             
+0000abcd  GrFontCodepageGet             
+0000ab69  GrFontGlyphDataGet            
+00006ec7  GrFontGlyphRender             
+0000aa3f  GrFontHeightGet               
+0000ab43  GrFontInfoGet                 
+0000ad2b  GrImageDraw                   
+00008f21  GrLineDraw                    
+0000a701  GrLineDrawH                   
+0000a747  GrLineDrawV                   
+0000ad8d  GrMapISO8859_1_Unicode        
+0000a15b  GrRectDraw                    
+00009c71  GrRectFill                    
+00009cf7  GrRectIntersectGet            
+0000a887  GrRectOverlapCheck            
+0000ac3d  GrStringDraw                  
+0000a98b  GrStringNextCharGet           
+00009fbd  GrStringWidthGet              
+0000a025  IntEnable                     
+00006059  Kentec320x240x16_SSD2119Init  
+0000a1c1  OnButtonPress                 
+00009be9  OnCanvasPaint                 
+0000a4f1  OnCheckChange                 
+00007785  OnIntroPaint                  
+00009771  OnNext                        
+00009545  OnPrevious                    
+0000798d  OnPrimitivePaint              
+00009ee9  OnRadioChange                 
+00009b5d  OnSliderChange                
+0000a9b9  RadioButtonMsgProc            
+0000aa6b  RectangularButtonMsgProc      
+0000ada9  ResetISR                      
+0000ad95  SSIBusy                       
+0000a811  SSIConfigSetExpClk            
+0000acb7  SSIDataGetNonBlocking         
+0000ad79  SSIDataPut                    
+0000ad83  SSIEnable                     
+0000aa97  SliderMsgProc                 
+00007b8d  SysCtlClockFreqSet            
+0000adaf  SysCtlDelay                   
+0000a8f5  SysCtlPeripheralEnable        
+0000a289  TimerConfigure                
+0000a3f9  TimerControlTrigger           
+0000ad39  TimerEnable                   
+0000acc9  TimerLoadSet                  
+0000ad55  TouchScreenCallbackSet        
+00008e0d  TouchScreenInit               
+00008bb9  TouchScreenIntHandler         
+0000abeb  WidgetAdd                     
+0000adbb  WidgetDefaultMsgProc          
+00009119  WidgetMessageQueueAdd         
+0000a225  WidgetMessageQueueProcess     
+00009829  WidgetMessageSendPostOrder    
+0000a2e9  WidgetMessageSendPreOrder     
+0000ac91  WidgetMutexGet                
+0000adb5  WidgetMutexPut                
+0000ac09  WidgetPointerMessage          
+0000a541  WidgetRemove                  
+20001da0  __STACK_END                   
+00000400  __STACK_SIZE                  
+20001da0  __STACK_TOP                   
+0000b2b0  __TI_CINIT_Base               
+0000b2c0  __TI_CINIT_Limit              
+0000b298  __TI_Handler_Table_Base       
+0000b2a4  __TI_Handler_Table_Limit      
+0000a78d  __TI_auto_init_nobinit_nopinit
+0000a08d  __TI_decompress_lzss          
+0000ad47  __TI_decompress_none          
+ffffffff  __TI_pprof_out_hndl           
+ffffffff  __TI_prof_data_size           
+ffffffff  __TI_prof_data_start          
+00000000  __TI_static_base__            
+0000ad61  __TI_zero_init                
+00009d77  __aeabi_idiv0                 
+00009d77  __aeabi_ldiv0                 
+00009e6f  __aeabi_memclr                
+00009e6f  __aeabi_memclr4               
+00009e6f  __aeabi_memclr8               
+00009a31  __aeabi_memcpy                
+00009a31  __aeabi_memcpy4               
+00009a31  __aeabi_memcpy8               
+00009e71  __aeabi_memset                
+00009e71  __aeabi_memset4               
+00009e71  __aeabi_memset8               
+0000a7d1  __aeabi_uidiv                 
+0000a7d1  __aeabi_uidivmod              
+ffffffff  __binit__                     
+ffffffff  __c_args__                    
+UNDEFED   __mpu_init                    
+200019a0  __stack                       
+20000000  __start___llvm_prf_cnts       
+20000000  __stop___llvm_prf_cnts        
+0000a929  _c_int00_noargs               
+UNDEFED   _system_post_cinit            
+0000adbf  _system_pre_init              
+0000adc3  abort                         
+ffffffff  binit                         
+200010d4  g_i16TouchMin                 
+2000199c  g_i16TouchX                   
+2000199e  g_i16TouchY                   
+200010b0  g_pcPanei32Names              
+00000000  g_pfnVectors                  
+20001988  g_pi32ParmSet                 
+00006024  g_pi32TouchParameters         
+20000a08  g_psCheckBoxIndicators        
+20000ac8  g_psCheckBoxes                
+00006040  g_psDefaultCodePointMapTable  
+200004a8  g_psPanels                    
+20000000  g_psPushButtonIndicators      
+200006a8  g_psPushButtons               
+20000888  g_psRadioButtonIndicators     
+20000b88  g_psRadioButtons1             
+20000c48  g_psRadioButtons2             
+20000d08  g_psRadioContainers           
+20000280  g_psSliders                   
+0000508a  g_pui8Blue50x50               
+0000529a  g_pui8Blue50x50Press          
+000037ef  g_pui8GettingHotter28x148     
+00004aad  g_pui8GettingHotter28x148Mono 
+00002fc9  g_pui8GreenSlider195x37       
+000057d2  g_pui8LightOff                
+000058c7  g_pui8LightOn                 
+00004e5a  g_pui8Logo                    
+0000278c  g_pui8RedSlider195x37         
+20000e18  g_sCanvas1                    
+20000e58  g_sCanvas2                    
+20000e98  g_sCanvas3                    
+20000fd8  g_sContainer1                 
+20001010  g_sContainer2                 
+20001048  g_sContainer3                 
+000059b0  g_sFontCm12                   
+00005a78  g_sFontCm14                   
+00005b40  g_sFontCm18                   
+00005c08  g_sFontCm20                   
+00005cd0  g_sFontCm22                   
+00005d98  g_sFontCm24                   
+20000ed8  g_sIntroduction               
+00005ffc  g_sKentec320x240x16_SSD2119   
+20000d78  g_sNext                       
+20000dc8  g_sPrevious                   
+20000f18  g_sPrimitives                 
+20001080  g_sRoot                       
+20000f58  g_sSliderValueCanvas          
+20000f98  g_sTitle                      
+20001990  g_ui32ButtonState             
+20001994  g_ui32Panel                   
+20001998  g_ui32SysClock                
+00008541  main                          
+00009a31  memcpy                        
+00009e77  memset                        
+20001400  psDMAControlTable             
+0000ad6d  uDMAControlBaseSet            
+0000ad0d  uDMAEnable                    
+0000abad  usprintf                      
+0000ab19  ustrncpy                      
+0000711d  uvsnprintf                    
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                          
+-------   ----                          
+00000000  __TI_static_base__            
+00000000  g_pfnVectors                  
+00000400  __STACK_SIZE                  
+0000278c  g_pui8RedSlider195x37         
+00002fc9  g_pui8GreenSlider195x37       
+000037ef  g_pui8GettingHotter28x148     
+00004aad  g_pui8GettingHotter28x148Mono 
+00004e5a  g_pui8Logo                    
+0000508a  g_pui8Blue50x50               
+0000529a  g_pui8Blue50x50Press          
+000057d2  g_pui8LightOff                
+000058c7  g_pui8LightOn                 
+000059b0  g_sFontCm12                   
+00005a78  g_sFontCm14                   
+00005b40  g_sFontCm18                   
+00005c08  g_sFontCm20                   
+00005cd0  g_sFontCm22                   
+00005d98  g_sFontCm24                   
+00005ffc  g_sKentec320x240x16_SSD2119   
+00006024  g_pi32TouchParameters         
+00006040  g_psDefaultCodePointMapTable  
+00006059  Kentec320x240x16_SSD2119Init  
+00006ec7  GrFontGlyphRender             
+0000711d  uvsnprintf                    
+0000757d  GrCircleDraw                  
+00007785  OnIntroPaint                  
+0000798d  OnPrimitivePaint              
+00007b8d  SysCtlClockFreqSet            
+00008541  main                          
+00008943  GrCircleFill                  
+00008a87  GPIOPadConfigSet              
+00008bb9  TouchScreenIntHandler         
+00008e0d  TouchScreenInit               
+00008f21  GrLineDraw                    
+00009119  WidgetMessageQueueAdd         
+00009483  GrDefaultStringRenderer       
+00009545  OnPrevious                    
+00009771  OnNext                        
+00009829  WidgetMessageSendPostOrder    
+00009a31  __aeabi_memcpy                
+00009a31  __aeabi_memcpy4               
+00009a31  __aeabi_memcpy8               
+00009a31  memcpy                        
+00009b5d  OnSliderChange                
+00009be9  OnCanvasPaint                 
+00009c71  GrRectFill                    
+00009cf7  GrRectIntersectGet            
+00009d77  __aeabi_idiv0                 
+00009d77  __aeabi_ldiv0                 
+00009df5  ADCSequenceStepConfigure      
+00009e6f  __aeabi_memclr                
+00009e6f  __aeabi_memclr4               
+00009e6f  __aeabi_memclr8               
+00009e71  __aeabi_memset                
+00009e71  __aeabi_memset4               
+00009e71  __aeabi_memset8               
+00009e77  memset                        
+00009ee9  OnRadioChange                 
+00009f55  GrContextInit                 
+00009fbd  GrStringWidthGet              
+0000a025  IntEnable                     
+0000a08d  __TI_decompress_lzss          
+0000a0f5  GrContextClipRegionSet        
+0000a15b  GrRectDraw                    
+0000a1c1  OnButtonPress                 
+0000a225  WidgetMessageQueueProcess     
+0000a289  TimerConfigure                
+0000a2e9  WidgetMessageSendPreOrder     
+0000a3f9  TimerControlTrigger           
+0000a451  ADCSequenceConfigure          
+0000a4f1  OnCheckChange                 
+0000a541  WidgetRemove                  
+0000a671  GPIOPinConfigure              
+0000a701  GrLineDrawH                   
+0000a747  GrLineDrawV                   
+0000a78d  __TI_auto_init_nobinit_nopinit
+0000a7d1  __aeabi_uidiv                 
+0000a7d1  __aeabi_uidivmod              
+0000a811  SSIConfigSetExpClk            
+0000a887  GrRectOverlapCheck            
+0000a8f5  SysCtlPeripheralEnable        
+0000a929  _c_int00_noargs               
+0000a95d  CheckBoxMsgProc               
+0000a98b  GrStringNextCharGet           
+0000a9b9  RadioButtonMsgProc            
+0000a9e7  CircularButtonMsgProc         
+0000aa13  GrFontBaselineGet             
+0000aa3f  GrFontHeightGet               
+0000aa6b  RectangularButtonMsgProc      
+0000aa97  SliderMsgProc                 
+0000aaef  GPIODirModeSet                
+0000ab19  ustrncpy                      
+0000ab43  GrFontInfoGet                 
+0000ab69  GrFontGlyphDataGet            
+0000abad  usprintf                      
+0000abcd  GrFontCodepageGet             
+0000abeb  WidgetAdd                     
+0000ac09  WidgetPointerMessage          
+0000ac25  GPIOPinTypeGPIOOutput         
+0000ac3d  GrStringDraw                  
+0000ac69  CanvasMsgProc                 
+0000ac7d  ContainerMsgProc              
+0000ac91  WidgetMutexGet                
+0000aca5  GPIOPinTypeSSI                
+0000acb7  SSIDataGetNonBlocking         
+0000acc9  TimerLoadSet                  
+0000acdb  ADCIntEnable                  
+0000aced  FPUEnable                     
+0000acfd  FPULazyStackingEnable         
+0000ad0d  uDMAEnable                    
+0000ad1d  ADCSequenceEnable             
+0000ad2b  GrImageDraw                   
+0000ad39  TimerEnable                   
+0000ad47  __TI_decompress_none          
+0000ad55  TouchScreenCallbackSet        
+0000ad61  __TI_zero_init                
+0000ad6d  uDMAControlBaseSet            
+0000ad79  SSIDataPut                    
+0000ad83  SSIEnable                     
+0000ad8d  GrMapISO8859_1_Unicode        
+0000ad95  SSIBusy                       
+0000ad9d  GPIOPinWrite                  
+0000ada3  GrContextFontSet              
+0000ada9  ResetISR                      
+0000adaf  SysCtlDelay                   
+0000adb5  WidgetMutexPut                
+0000adbb  WidgetDefaultMsgProc          
+0000adbf  _system_pre_init              
+0000adc3  C$$EXIT                       
+0000adc3  abort                         
+0000b298  __TI_Handler_Table_Base       
+0000b2a4  __TI_Handler_Table_Limit      
+0000b2b0  __TI_CINIT_Base               
+0000b2c0  __TI_CINIT_Limit              
+20000000  __start___llvm_prf_cnts       
+20000000  __stop___llvm_prf_cnts        
+20000000  g_psPushButtonIndicators      
+20000280  g_psSliders                   
+200004a8  g_psPanels                    
+200006a8  g_psPushButtons               
+20000888  g_psRadioButtonIndicators     
+20000a08  g_psCheckBoxIndicators        
+20000ac8  g_psCheckBoxes                
+20000b88  g_psRadioButtons1             
+20000c48  g_psRadioButtons2             
+20000d08  g_psRadioContainers           
+20000d78  g_sNext                       
+20000dc8  g_sPrevious                   
+20000e18  g_sCanvas1                    
+20000e58  g_sCanvas2                    
+20000e98  g_sCanvas3                    
+20000ed8  g_sIntroduction               
+20000f18  g_sPrimitives                 
+20000f58  g_sSliderValueCanvas          
+20000f98  g_sTitle                      
+20000fd8  g_sContainer1                 
+20001010  g_sContainer2                 
+20001048  g_sContainer3                 
+20001080  g_sRoot                       
+200010b0  g_pcPanei32Names              
+200010d4  g_i16TouchMin                 
+20001400  psDMAControlTable             
+20001988  g_pi32ParmSet                 
+20001990  g_ui32ButtonState             
+20001994  g_ui32Panel                   
+20001998  g_ui32SysClock                
+2000199c  g_i16TouchX                   
+2000199e  g_i16TouchY                   
+200019a0  __stack                       
+20001da0  __STACK_END                   
+20001da0  __STACK_TOP                   
+ffffffff  __TI_pprof_out_hndl           
+ffffffff  __TI_prof_data_size           
+ffffffff  __TI_prof_data_start          
+ffffffff  __binit__                     
+ffffffff  __c_args__                    
+ffffffff  binit                         
+UNDEFED   __mpu_init                    
+UNDEFED   _system_post_cinit            
+
+[179 symbols]
